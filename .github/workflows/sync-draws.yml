@@ -1,0 +1,36 @@
+name: Sync Hash3 draw data
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hash3-draw-data-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out data repository
+        uses: actions/checkout@v4
+
+      - name: Fetch and merge new draws
+        run: python scripts/sync_draws.py
+
+      - name: Save new data files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No new draw data."
+          else
+            git commit -m "data: add new hash3 draws"
+            git push
+          fi
+
