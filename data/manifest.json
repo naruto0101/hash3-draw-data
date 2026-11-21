@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "market": "NEWHASH3FC",
   "sourceCode": "trxbh3fc",
-  "latestIssue": "20261121-0173",
-  "latestDrawTime": "2026-11-21 08:39:00",
-  "recordCount": 12743,
+  "latestIssue": "20261121-0176",
+  "latestDrawTime": "2026-11-21 08:48:00",
+  "recordCount": 12746,
   "archiveFile": "data/archive/history.csv",
   "updateChunkFormat": "data/updates/YYYY/MM/DD/HH.csv",
   "proofFile": "data/proofs.jsonl",
-  "lastUpdated": "2026-11-21T00:39:25Z"
+  "lastUpdated": "2026-11-21T00:49:30Z"
 }
